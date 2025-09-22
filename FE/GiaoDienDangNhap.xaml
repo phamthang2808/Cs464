@@ -39,8 +39,8 @@
         <!-- Nút và link -->
         <StackPanel Grid.Row="3" Margin="0,20,0,0" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Đăng Nhập" Width="100" Height="35" Margin="5"/>
-                <Button Content="Thoát" Width="100" Height="35" Margin="5"/>
+                <Button Content="Đăng Nhập" Width="100" Height="35" Margin="5" Click="Button_Click"/>
+                <Button Content="Thoát" Width="100" Height="35" Margin="5" Click="Button_Click_1"/>
             </StackPanel>
 
             <TextBlock Text="Bạn chưa có tài khoản?" 
