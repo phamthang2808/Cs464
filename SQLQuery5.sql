@@ -1,0 +1,48 @@
+﻿-- Tạo bảng THONG TIN DAI LY
+CREATE TABLE THONGTINDAILY (
+    MaDaiLy NVARCHAR(50) PRIMARY KEY,
+    TenDaiLy NVARCHAR(255),
+    DiaChi NVARCHAR(255),
+    SoDienThoai NVARCHAR(20)
+);
+
+-- Tạo bảng TAI KHOAN
+-- Liên kết với THONG TIN DAI LY
+CREATE TABLE TAIKHOAN (
+    TenTaiKhoan NVARCHAR(50) PRIMARY KEY,
+    MatKhau NVARCHAR(255) NOT NULL,
+    MaDaiLy NVARCHAR(50),
+    FOREIGN KEY (MaDaiLy) REFERENCES THONGTINDAILY(MaDaiLy)
+);
+
+-- Tạo bảng SAN PHAM
+CREATE TABLE SANPHAM (
+    MaSanPham NVARCHAR(50) PRIMARY KEY,
+    TenSanPham NVARCHAR(255) NOT NULL,
+    SoLuongTon INT CHECK (SoLuongTon >= 0),
+    DonVi NVARCHAR(50),
+    GiaBan DECIMAL(18, 2) CHECK (GiaBan >= 0)
+);
+
+-- Tạo bảng HOA DON
+-- Liên kết với THONG TIN DAI LY
+CREATE TABLE HOADON (
+    MaHoaDon NVARCHAR(50) PRIMARY KEY,
+    NgayLap DATE,
+    TongTien DECIMAL(18, 2) CHECK (TongTien >= 0),
+    LoaiHoaDon NVARCHAR(50) NOT NULL, -- Ví dụ: 'BanHang' hoặc 'MuaHang'
+    MaDaiLy NVARCHAR(50),
+    FOREIGN KEY (MaDaiLy) REFERENCES THONGTINDAILY(MaDaiLy)
+);
+
+-- Tạo bảng CHI TIET HOA DON
+-- Liên kết với HOA DON và SAN PHAM
+CREATE TABLE CHITIETHOADON (
+    MaChiTietHoaDon INT PRIMARY KEY IDENTITY(1,1),
+    MaHoaDon NVARCHAR(50),
+    MaSanPham NVARCHAR(50),
+    SoLuong INT CHECK (SoLuong > 0),
+    DonGia DECIMAL(18, 2) CHECK (DonGia >= 0),
+    FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon),
+    FOREIGN KEY (MaSanPham) REFERENCES SANPHAM(MaSanPham)
+);

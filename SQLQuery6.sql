@@ -1,0 +1,6 @@
+﻿INSERT INTO CHITIETHOADON (MaHoaDon, MaSanPham, SoLuong, DonGia)
+VALUES
+    ('HD001', 'SP001', 3, 120000.00),
+    ('HD001', 'SP002', 2, 350000.00),
+    ('HD002', 'SP004', 1, 250000.00),
+    ('HD002', 'SP005', 2, 180000.00);
