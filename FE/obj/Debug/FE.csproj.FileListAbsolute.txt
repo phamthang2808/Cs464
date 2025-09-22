@@ -1,7 +1,0 @@
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\FE.csprojAssemblyReference.cache
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\GiaodienDaiLy.g.cs
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\MainWindow.g.cs
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\App.g.cs
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\FE_Content.g.cs
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\FE_MarkupCompile.cache
-C:\Users\TG DD\Source\Repos\Cs464\FE\obj\Debug\FE_MarkupCompile.lref

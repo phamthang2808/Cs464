@@ -70,15 +70,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GiaodienDaiLy.xaml">
+    <Page Include="GD_ThongTinDaiLy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GiaoDienDangNhap.xaml">
+    <Page Include="GD_DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="GD_QuanLySP.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -86,14 +86,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GiaodienDaiLy.xaml.cs">
-      <DependentUpon>GiaodienDaiLy.xaml</DependentUpon>
+    <Compile Include="GD_ThongTinDaiLy.xaml.cs">
+      <DependentUpon>GD_ThongTinDaiLy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GiaoDienDangNhap.xaml.cs">
-      <DependentUpon>GiaoDienDangNhap.xaml</DependentUpon>
+    <Compile Include="GD_DangNhap.xaml.cs">
+      <DependentUpon>GD_DangNhap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="GD_QuanLySP.xaml.cs">
+      <DependentUpon>GD_QuanLySP.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -124,6 +124,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="qlbh.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

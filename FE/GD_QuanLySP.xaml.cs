@@ -24,5 +24,25 @@ namespace FE
         {
             InitializeComponent();
         }
+
+        private void btnThemMoi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCapNhat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnThoat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

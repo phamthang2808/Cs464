@@ -1,0 +1,11 @@
+﻿# Visual Studio temporary files
+.vs/
+*.suo
+*.user
+*.db.lock
+*.ide-shm
+*.ide-wal
+*.exe
+*.pdb
+bin/
+obj/
