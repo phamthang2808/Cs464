@@ -1,0 +1,135 @@
+﻿<Window x:Class="FE.GD_HoaDonMuaHang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FE"
+        mc:Ignorable="d"
+        Title="HÓA ĐƠN MUA HÀNG" Height="480" Width="800"
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#F0F2F5" Margin="0,0,-26.4,-29.6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="HÓA ĐƠN MUA HÀNG"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#2C3E50"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,15"/>
+
+        <Border Grid.Row="1"
+                Background="#FFFFFF"
+                Margin="20,0,20,15"
+                BorderBrush="#D9DDE3"
+                BorderThickness="1"
+                Effect="{StaticResource DropShadow}">
+            <Grid Margin="30,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Mã hóa đơn" Grid.Row="0" Grid.Column="0" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+
+                <Label Content="Tên mặt hàng" Grid.Row="2" Grid.Column="0" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+
+                <Label Content="Đơn vị tính" Grid.Row="4" Grid.Column="0" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+
+                <Label Content="Ngày nhập" Grid.Row="0" Grid.Column="3" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <DatePicker Grid.Row="0" Grid.Column="4" Style="{StaticResource InputFieldStyle}" SelectedDate="2018-04-25" />
+
+                <Label Content="Số lượng" Grid.Row="2" Grid.Column="3" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource InputFieldStyle}"/>
+
+                <Label Content="Giá" Grid.Row="4" Grid.Column="3" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#555"/>
+                <TextBox Grid.Row="4" Grid.Column="4" Style="{StaticResource InputFieldStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Label Content="Tổng tiền:" FontWeight="Bold" FontSize="16" Foreground="#2C3E50"/>
+                    <TextBlock Text="Tổng tiền" FontWeight="Bold" FontSize="16" Foreground="#2980B9" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" Margin="0,15,0,0">
+                    <Button Content="Thêm" Style="{StaticResource ActionButton}" Background="#27AE60" Margin="10,0"/>
+                    <Button Content="Xóa" Style="{StaticResource ActionButton}" Background="#E74C3C" Margin="10,0"/>
+                    <Button Content="Sửa" Style="{StaticResource ActionButton}" Background="#F39C12" Margin="10,0"/>
+                    <Button Content="Thoát" Style="{StaticResource ActionButton}" Background="#95A5A6" Margin="10,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1"
+                Background="#FFFFFF"
+                Margin="20,317,20,20"
+                Padding="15"
+                BorderBrush="#D9DDE3"
+                BorderThickness="1"
+                Effect="{StaticResource DropShadow}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Text="Danh sách hóa đơn nhập hàng"
+                           FontWeight="SemiBold"
+                           Foreground="#555"
+                           Margin="0,0,0,10"/>
+                <ListView Grid.Row="1" BorderThickness="0" Background="Transparent"/>
+            </Grid>
+        </Border>
+
+        <Grid.Resources>
+            <DropShadowEffect x:Key="DropShadow"
+                              Color="#D3D3D3"
+                              Direction="270"
+                              ShadowDepth="2"
+                              Opacity="0.5"
+                              BlurRadius="5"/>
+
+            <Style x:Key="InputFieldStyle" TargetType="{x:Type Control}">
+                <Setter Property="Height" Value="32"/>
+                <Setter Property="Padding" Value="8,0,0,0"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            </Style>
+
+            <Style x:Key="ActionButton" TargetType="{x:Type Button}">
+                <Setter Property="Width" Value="90"/>
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Opacity" Value="0.9"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+    </Grid>
+</Window>

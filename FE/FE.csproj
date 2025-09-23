@@ -82,6 +82,18 @@
     <Compile Include="CHITIETHOADON.cs">
       <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GD_HoaDonBanHang.xaml.cs">
+      <DependentUpon>GD_HoaDonBanHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GD_HoaDonMuaHang.xaml.cs">
+      <DependentUpon>GD_HoaDonMuaHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GD_ThongKe.xaml.cs">
+      <DependentUpon>GD_ThongKe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GD_TrangChu.xaml.cs">
+      <DependentUpon>GD_TrangChu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HOADON.cs">
       <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
     </Compile>
@@ -109,6 +121,18 @@
     <Compile Include="THONGTINDAILY.cs">
       <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
     </Compile>
+    <Page Include="GD_HoaDonBanHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GD_HoaDonMuaHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GD_ThongKe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GD_ThongTinDaiLy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +159,10 @@
       <DependentUpon>GD_QuanLySP.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GD_TrangChu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
