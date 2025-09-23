@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FE"
         mc:Ignorable="d"
         Title="THÔNG TIN ĐẠI LÍ" Height="450" Width="800">
-    <Grid Background="WhiteSmoke" Margin="10">
+    <Grid Background="WhiteSmoke" Margin="10,10,-49.4,-84">
 
         <TextBlock Text="THÔNG TIN ĐẠI LÍ" FontSize="24" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="Center" Margin="0,10,0,0"/>
 

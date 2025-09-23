@@ -11,26 +11,36 @@
         Background="#F4F6F9">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="#2D89EF" Height="50">
+            <Button Content="🏠 Trang chủ"
+                    Width="150" Margin="5"
+                    Foreground="White" Background="#2D89EF"
+                    BorderThickness="0" FontWeight="Bold"
+                    Cursor="Hand"/>
+
             <Button Content="📦 Sản phẩm"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
                     Cursor="Hand"/>
+
             <Button Content="🛒 Hóa đơn bán"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
                     Cursor="Hand"/>
+
             <Button Content="🧾 Hóa đơn mua"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
                     Cursor="Hand"/>
+
             <Button Content="📊 Thống kê"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
                     Cursor="Hand"/>
+
             <Button Content="🏢 Đại lý"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
@@ -44,4 +54,3 @@
         </Border>
     </DockPanel>
 </Window>
-
