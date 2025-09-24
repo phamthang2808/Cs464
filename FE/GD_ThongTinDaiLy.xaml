@@ -1,16 +1,23 @@
-﻿<Window x:Class="FE.GiaodienDaiLy"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FE"
-        mc:Ignorable="d"
-        Title="THÔNG TIN ĐẠI LÍ" Height="450" Width="800">
-    <Grid Background="WhiteSmoke" Margin="10,10,-49.4,-84">
+﻿<UserControl x:Class="FE.GiaodienDaiLy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:FE"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="WhiteSmoke">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="THÔNG TIN ĐẠI LÍ" FontSize="24" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+        <TextBlock Grid.Row="0" Text="THÔNG TIN ĐẠI LÍ" FontSize="24" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
-        <Border BorderBrush="Gray" BorderThickness="1" Margin="10,50,10,170" Background="White">
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10,0,10,10" Background="White">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
@@ -23,22 +30,21 @@
                 <StackPanel Margin="20" VerticalAlignment="Center" Grid.Column="0">
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Mã đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox Width="200" />
+                        <TextBox x:Name="txtMaDaiLy" Width="200" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Tên đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox Width="200" />
+                        <TextBox x:Name="txtTenDaiLy" Width="200" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Địa chỉ:" Width="100" VerticalAlignment="Center" />
-                        <TextBox Width="200" />
+                        <TextBox x:Name="txtDiaChi" Width="200" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Số điện thoại:" Width="100" VerticalAlignment="Center" />
-                        <TextBox Width="200" />
+                        <TextBox x:Name="txtSDT" Width="200" />
                     </StackPanel>
                 </StackPanel>
-
 
                 <Border Grid.Column="1" Background="LightYellow" Margin="10" BorderBrush="LightGray" BorderThickness="1">
                     <Image Stretch="Uniform" />
@@ -46,25 +52,28 @@
             </Grid>
         </Border>
 
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,330,0,0" >
-            <Button Content="Thêm" Width="80" Height="30" Background="#FFF9F1D1"/>
-            <Button Content="Cập nhật" Width="80" Height="30" Background="#FFF9F1D1"/>
-            <Button Content="Xóa" Width="80" Height="30" Background="#FFF9F1D1"/>
-            <Button Content="Thoát" Width="80" Height="30" Background="#FFF9F1D1"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+            <Button x:Name="btnThem" Content="Thêm" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
+            <Button x:Name="btnCapNhat" Content="Cập nhật" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
+            <Button x:Name="btnXoa" Content="Xóa" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
+            <Button x:Name="btnThoat" Content="Thoát" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
         </StackPanel>
 
-        <GroupBox Header="Danh Sách Đại Lí" Margin="10,370,10,10">
-            <ListView Name="lvDaiLy">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Mã" Width="100" />
-                        <GridViewColumn Header="Tên đại lí" Width="200" />
-                        <GridViewColumn Header="Địa chỉ" Width="200" />
-                        <GridViewColumn Header="SĐT" Width="150" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
+        <GroupBox Grid.Row="3" Header="Danh Sách Đại Lí" Margin="10,0,10,10">
+            <DataGrid x:Name="dgDaiLy"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          HeadersVisibility="Column"
+          RowHeight="32"
+          CanUserAddRows="False"
+          Background="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã" Width="*" Binding="{Binding MaDaiLy}" />
+                    <DataGridTextColumn Header="Tên đại lí" Width="2*" Binding="{Binding TenDaiLy}" />
+                    <DataGridTextColumn Header="Địa chỉ" Width="2*" Binding="{Binding DiaChi}" />
+                    <DataGridTextColumn Header="SĐT" Width="*" Binding="{Binding SoDienThoai}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </GroupBox>
     </Grid>
-</Window>
+</UserControl>

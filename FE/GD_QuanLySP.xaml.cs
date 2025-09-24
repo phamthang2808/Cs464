@@ -18,9 +18,9 @@ namespace FE
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class QL_SanPham : UserControl
     {
-        public MainWindow()
+        public QL_SanPham()
         {
             InitializeComponent();
         }
@@ -36,11 +36,6 @@ namespace FE
         }
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
 
         }

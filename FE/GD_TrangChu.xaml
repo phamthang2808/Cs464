@@ -11,41 +11,53 @@
         Background="#F4F6F9">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="#2D89EF" Height="50">
-            <Button Content="🏠 Trang chủ"
+            <Button x:Name="btnTrangChu"
+                    Content="🏠 Trang chủ"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_TrangChu_Click"/>
 
-            <Button Content="📦 Sản phẩm"
+            <Button x:Name="btnSanPham"
+                    Content="📦 Sản phẩm"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_SanPham_Click"/>
 
-            <Button Content="🛒 Hóa đơn bán"
+            <Button x:Name="btnHoaDonBan"
+                    Content="🛒 Hóa đơn bán"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_HoaDonBan_Click"/>
 
-            <Button Content="🧾 Hóa đơn mua"
+            <Button x:Name="btnHoaDonMua"
+                    Content="🧾 Hóa đơn mua"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_HoaDonMua_Click"/>
 
-            <Button Content="📊 Thống kê"
+            <Button x:Name="btnThongKe"
+                    Content="📊 Thống kê"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_ThongKe_Click"/>
 
-            <Button Content="🏢 Đại lý"
+            <Button x:Name="btnDaiLy"
+                    Content="🏢 Đại lý"
                     Width="150" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Click="Btn_DaiLy_Click"/>
         </StackPanel>
 
         <Border Margin="10" CornerRadius="8" Background="White" Padding="15"

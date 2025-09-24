@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation; // Add this using directive
 using System.Windows.Shapes;
 
 namespace FE
@@ -17,7 +18,7 @@ namespace FE
     /// <summary>
     /// Interaction logic for GiaodienDaiLy.xaml
     /// </summary>
-    public partial class GiaodienDaiLy : Window
+    public partial class GiaodienDaiLy : UserControl // Changed from Window to UserControl
     {
         public GiaodienDaiLy()
         {

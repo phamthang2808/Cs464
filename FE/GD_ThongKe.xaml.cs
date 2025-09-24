@@ -17,7 +17,7 @@ namespace FE
     /// <summary>
     /// Interaction logic for GD_ThongKe.xaml
     /// </summary>
-    public partial class GD_ThongKe : Window
+    public partial class GD_ThongKe : UserControl
     {
         public GD_ThongKe()
         {

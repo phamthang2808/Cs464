@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FE"
         mc:Ignorable="d"
-        Title="Giao Diện Đăng Ký" Height="548.724" Width="940.051"
+        Title="Giao Diện Đăng Ký" Height="600" Width="950"
         WindowStartupLocation="CenterScreen"
         Background="#F0F2F5">
 

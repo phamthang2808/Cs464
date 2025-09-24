@@ -17,7 +17,7 @@ namespace FE
     /// <summary>
     /// Interaction logic for GD_HoaDonMuaHang.xaml
     /// </summary>
-    public partial class GD_HoaDonMuaHang : Window
+    public partial class GD_HoaDonMuaHang : UserControl
     {
         public GD_HoaDonMuaHang()
         {
