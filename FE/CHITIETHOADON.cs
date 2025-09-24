@@ -15,7 +15,7 @@ namespace FE
     public partial class CHITIETHOADON
     {
         public int MaChiTietHoaDon { get; set; }
-        public string MaHoaDon { get; set; }
+        public Nullable<int> MaHoaDon { get; set; }
         public string MaSanPham { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }

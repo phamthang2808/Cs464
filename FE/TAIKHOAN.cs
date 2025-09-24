@@ -16,8 +16,5 @@ namespace FE
     {
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
-        public string MaDaiLy { get; set; }
-    
-        public virtual THONGTINDAILY THONGTINDAILY { get; set; }
     }
 }

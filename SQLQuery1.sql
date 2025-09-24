@@ -1,78 +1,101 @@
-﻿-- Tạo bảng THONG TIN DAI LY
-CREATE TABLE THONGTINDAILY (
-    MaDaiLy NVARCHAR(50) PRIMARY KEY,
-    TenDaiLy NVARCHAR(255),
-    DiaChi NVARCHAR(255),
-    SoDienThoai NVARCHAR(20)
-);
+﻿-- Bước 1: (Tùy chọn) Xóa các bảng cũ nếu chúng tồn tại
+-- Thứ tự xóa rất quan trọng để tránh lỗi khóa ngoại.
+DROP TABLE IF EXISTS CHITIETHOADON;
+DROP TABLE IF EXISTS HOADON;
+DROP TABLE IF EXISTS SANPHAM;
+DROP TABLE IF EXISTS THONGTINDAILY;
+DROP TABLE IF EXISTS TAIKHOAN;
 
--- Tạo bảng TAI KHOAN
--- Liên kết với THONG TIN DAI LY
+
+-- Bước 2: Tạo lại các bảng theo đúng sơ đồ mới
+
+-- Tạo bảng TAIKHOAN (Độc lập)
 CREATE TABLE TAIKHOAN (
-    TenTaiKhoan NVARCHAR(50) PRIMARY KEY,
-    MatKhau NVARCHAR(255) NOT NULL,
-    MaDaiLy NVARCHAR(50),
-    FOREIGN KEY (MaDaiLy) REFERENCES THONGTINDAILY(MaDaiLy)
+    TenTaiKhoan VARCHAR(50) PRIMARY KEY,
+    MatKhau NVARCHAR(255)
 );
 
--- Tạo bảng SAN PHAM
+-- Tạo bảng THONGTINDAILY (Không còn liên kết với TAIKHOAN)
+CREATE TABLE THONGTINDAILY (
+    MaDaily INT PRIMARY KEY IDENTITY(1,1),
+    TenDaily NVARCHAR(255),
+    DiaChi NVARCHAR(255),
+    SoDienThoai VARCHAR(20)
+);
+
+-- Tạo bảng SANPHAM
 CREATE TABLE SANPHAM (
-    MaSanPham NVARCHAR(50) PRIMARY KEY,
-    TenSanPham NVARCHAR(255) NOT NULL,
-    SoLuongTon INT CHECK (SoLuongTon >= 0),
+    MaSanPham VARCHAR(50) PRIMARY KEY,
+    TenSanPham NVARCHAR(255),
+    SoLuongTon INT,
     DonVi NVARCHAR(50),
-    GiaBan DECIMAL(18, 2) CHECK (GiaBan >= 0)
+    GiaBan DECIMAL(18, 2)
 );
 
--- Tạo bảng HOA DON
--- Liên kết với THONG TIN DAI LY
+-- Tạo bảng HOADON
 CREATE TABLE HOADON (
-    MaHoaDon NVARCHAR(50) PRIMARY KEY,
+    MaHoaDon INT PRIMARY KEY IDENTITY(1,1),
     NgayLap DATE,
-    TongTien DECIMAL(18, 2) CHECK (TongTien >= 0),
-    LoaiHoaDon NVARCHAR(50) NOT NULL, -- Ví dụ: 'BanHang' hoặc 'MuaHang'
-    MaDaiLy NVARCHAR(50),
-    FOREIGN KEY (MaDaiLy) REFERENCES THONGTINDAILY(MaDaiLy)
+    TongTien DECIMAL(18, 2),
+    LoaiHoaDon NVARCHAR(50),
+    MaDaily INT,
+    FOREIGN KEY (MaDaily) REFERENCES THONGTINDAILY(MaDaily)
 );
 
--- Tạo bảng CHI TIET HOA DON
--- Liên kết với HOA DON và SAN PHAM
+-- Tạo bảng CHITIETHOADON
 CREATE TABLE CHITIETHOADON (
     MaChiTietHoaDon INT PRIMARY KEY IDENTITY(1,1),
-    MaHoaDon NVARCHAR(50),
-    MaSanPham NVARCHAR(50),
-    SoLuong INT CHECK (SoLuong > 0),
-    DonGia DECIMAL(18, 2) CHECK (DonGia >= 0),
+    MaHoaDon INT,
+    MaSanPham VARCHAR(50),
+    SoLuong INT,
+    DonGia DECIMAL(18, 2),
     FOREIGN KEY (MaHoaDon) REFERENCES HOADON(MaHoaDon),
     FOREIGN KEY (MaSanPham) REFERENCES SANPHAM(MaSanPham)
 );
 
-INSERT INTO THONGTINDAILY (MaDaiLy, TenDaiLy, DiaChi, SoDienThoai)
+INSERT INTO TAIKHOAN (TenTaiKhoan, MatKhau)
 VALUES
-    ('DL001', N'Đại Lý Minh Tâm', N'123 Đường Nguyễn Huệ, Quận 1, TP.HCM', '0901234567'),
-    ('DL002', N'Đại Lý Hoàng Yến', N'456 Đường Lê Lợi, Quận 1, TP.HCM', '0917654321');
+('admin', '123456'),
+('nhanvien', 'matkhau123'),
+('nguyenvana', 'password01');
 
-INSERT INTO TAIKHOAN (TenTaiKhoan, MatKhau, MaDaiLy)
+INSERT INTO THONGTINDAILY (TenDaily, DiaChi, SoDienThoai)
 VALUES
-    ('minhtam', 'matkhau123', 'DL001'),
-    ('hoangyen', 'matkhau456', 'DL002');
+(N'Cửa Hàng Áo Quần T-Fashion', N'123 Đường Nguyễn Trãi, Q.1, TP.HCM', '0901234567'),
+(N'Shop Quần Áo Đẹp', N'456 Đường Lê Lợi, Q. Bình Thạnh, TP.HCM', '0912345678');
 
 INSERT INTO SANPHAM (MaSanPham, TenSanPham, SoLuongTon, DonVi, GiaBan)
 VALUES
-    ('SP001', N'Áo thun nam', 150, N'Cái', 120000.00),
-    ('SP002', N'Quần jean nữ', 80, N'Cái', 350000.00),
-    ('SP003', N'Váy maxi hoa', 65, N'Cái', 480000.00),
-    ('SP004', N'Áo sơ mi trắng', 200, N'Cái', 250000.00),
-    ('SP005', N'Quần short kaki', 100, N'Cái', 180000.00);
+('SP001', N'Áo phông nam Cotton', 150, N'Cái', 120000.00),
+('SP002', N'Quần jeans nữ Slimfit', 80, N'Cái', 350000.00),
+('SP003', N'Váy suông họa tiết', 65, N'Cái', 280000.00),
+('SP004', N'Áo khoác bomber', 40, N'Cái', 450000.00);
 
-INSERT INTO HOADON (MaHoaDon, NgayLap, TongTien, LoaiHoaDon, MaDaiLy)
+-- Hóa đơn thuộc về đại lý có MaDaily = 1 (T-Fashion)
+INSERT INTO HOADON (NgayLap, TongTien, LoaiHoaDon, MaDaily)
 VALUES
-    ('HD001', '2025-09-20', 1170000.00, N'BanHang', 'DL001'),
-    ('HD002', '2025-09-21', 650000.00, N'MuaHang', 'DL002');
+('2025-09-24', 980000.00, N'Bán', 1),
+('2025-09-23', 500000.00, N'Nhập', 1);
 
+-- Hóa đơn thuộc về đại lý có MaDaily = 2 (Shop Quần Áo Đẹp)
+INSERT INTO HOADON (NgayLap, TongTien, LoaiHoaDon, MaDaily)
+VALUES
+('2025-09-24', 630000.00, N'Bán', 2);
+
+-- Chi tiết cho Hóa đơn 1 (MaHoaDon = 1)
 INSERT INTO CHITIETHOADON (MaHoaDon, MaSanPham, SoLuong, DonGia)
 VALUES
-    ('HD001', 'SP001', 3, 120000.00),
-    ('HD001', 'SP002', 2, 350000.00),
-    ('HD002', 'SP004', 1, 250000.00),
-    ('HD002', 'SP005', 2, 180000.00);
+(1, 'SP002', 1, 350000.00), -- 1 Quần jeans
+(1, 'SP003', 1, 280000.00), -- 1 Váy suông
+(1, 'SP001', 3, 120000.00);  -- 3 Áo phông
+
+-- Chi tiết cho Hóa đơn 2 (MaHoaDon = 2)
+INSERT INTO CHITIETHOADON (MaHoaDon, MaSanPham, SoLuong, DonGia)
+VALUES
+(2, 'SP004', 10, 400000.00); -- 10 Áo khoác nhập với giá 400k/cái
+
+-- Chi tiết cho Hóa đơn 3 (MaHoaDon = 3)
+INSERT INTO CHITIETHOADON (MaHoaDon, MaSanPham, SoLuong, DonGia)
+VALUES
+(3, 'SP001', 5, 120000.00), -- 5 Áo phông
+(3, 'SP002', 1, 350000.00);  -- 1 Quần jeans

@@ -18,17 +18,14 @@ namespace FE
         public THONGTINDAILY()
         {
             this.HOADON = new HashSet<HOADON>();
-            this.TAIKHOAN = new HashSet<TAIKHOAN>();
         }
     
-        public string MaDaiLy { get; set; }
-        public string TenDaiLy { get; set; }
+        public int MaDaily { get; set; }
+        public string TenDaily { get; set; }
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADON { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAIKHOAN> TAIKHOAN { get; set; }
     }
 }

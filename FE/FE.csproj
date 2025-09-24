@@ -80,7 +80,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CHITIETHOADON.cs">
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GD_DangKy.xaml.cs">
+      <DependentUpon>GD_DangKy.xaml</DependentUpon>
     </Compile>
     <Compile Include="GD_HoaDonBanHang.xaml.cs">
       <DependentUpon>GD_HoaDonBanHang.xaml</DependentUpon>
@@ -95,32 +98,36 @@
       <DependentUpon>GD_TrangChu.xaml</DependentUpon>
     </Compile>
     <Compile Include="HOADON.cs">
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="QL_SanPhamEntities.Context.cs">
+    <Compile Include="QlspEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QL_SanPhamEntities.Context.tt</DependentUpon>
+      <DependentUpon>QlspEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="QL_SanPhamEntities.cs">
+    <Compile Include="QlspEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="QL_SanPhamEntities.Designer.cs">
+    <Compile Include="QlspEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QL_SanPhamEntities.edmx</DependentUpon>
+      <DependentUpon>QlspEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="SANPHAM.cs">
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TAIKHOAN.cs">
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="THONGTINDAILY.cs">
-      <DependentUpon>QL_SanPhamEntities.tt</DependentUpon>
+      <DependentUpon>QlspEntities.tt</DependentUpon>
     </Compile>
+    <Page Include="GD_DangKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GD_HoaDonBanHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,12 +194,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="QL_SanPhamEntities.edmx">
+    <EntityDeploy Include="QlspEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QL_SanPhamEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>QlspEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="QL_SanPhamEntities.edmx.diagram">
-      <DependentUpon>QL_SanPhamEntities.edmx</DependentUpon>
+    <None Include="QlspEntities.edmx.diagram">
+      <DependentUpon>QlspEntities.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -209,15 +216,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_SP.mdf</DependentUpon>
     </Content>
-    <Content Include="QL_SanPhamEntities.Context.tt">
+    <Content Include="QlspEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QL_SanPhamEntities.edmx</DependentUpon>
-      <LastGenOutput>QL_SanPhamEntities.Context.cs</LastGenOutput>
+      <DependentUpon>QlspEntities.edmx</DependentUpon>
+      <LastGenOutput>QlspEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="QL_SanPhamEntities.tt">
+    <Content Include="QlspEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QL_SanPhamEntities.edmx</DependentUpon>
-      <LastGenOutput>QL_SanPhamEntities.cs</LastGenOutput>
+      <DependentUpon>QlspEntities.edmx</DependentUpon>
+      <LastGenOutput>QlspEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
