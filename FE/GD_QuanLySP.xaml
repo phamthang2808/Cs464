@@ -134,7 +134,7 @@
                                Margin="0,15,0,0"/>
                     <Image Stretch="Uniform"
                            Margin="12"
-                           Source="Assets/hyperlife.png"
+                           Source="img/clothers.jpg"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
                 </Grid>
@@ -172,9 +172,9 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding MaSanPham}" Width="0.8*"/>
                         <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding TenSanPham}" Width="1.5*"/>
-                        <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="*"/>
+                        <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuongTon}" Width="*"/>
                         <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}" Width="*"/>
-                        <DataGridTextColumn Header="Giá" Binding="{Binding Gia, StringFormat={}{0:N0}}" Width="*"/>
+                        <DataGridTextColumn Header="Giá" Binding="{Binding GiaBan, StringFormat={}{0:N0}}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
