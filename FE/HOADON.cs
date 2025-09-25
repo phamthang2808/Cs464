@@ -24,7 +24,7 @@ namespace FE
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<decimal> TongTien { get; set; }
         public string LoaiHoaDon { get; set; }
-        public Nullable<int> MaDaily { get; set; }
+        public string MaDaily { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHOADON> CHITIETHOADON { get; set; }

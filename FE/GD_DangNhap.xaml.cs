@@ -21,7 +21,7 @@ namespace FE
     public partial class GiaoDienDangNhap : Window
     {
         // Khởi tạo đối tượng Database Context
-        QL_SP_Entities db = new QL_SP_Entities();
+        QL_SP_Entities1 db = new QL_SP_Entities1();
 
         public GiaoDienDangNhap()
         {

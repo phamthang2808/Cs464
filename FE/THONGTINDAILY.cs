@@ -20,7 +20,7 @@ namespace FE
             this.HOADON = new HashSet<HOADON>();
         }
     
-        public int MaDaily { get; set; }
+        public string MaDaily { get; set; }
         public string TenDaily { get; set; }
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }

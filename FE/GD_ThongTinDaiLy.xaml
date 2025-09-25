@@ -5,9 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:FE"
              mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
              d:DesignHeight="600" d:DesignWidth="900"
              Background="WhiteSmoke">
     <Grid Margin="10">
+        <Grid.Resources>
+            <Style x:Key="ActionButton" TargetType="{x:Type Button}">
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -23,53 +37,50 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
                 <StackPanel Margin="20" VerticalAlignment="Center" Grid.Column="0">
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Mã đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtMaDaiLy" Width="200" />
+                        <TextBox x:Name="txtMaDaiLy" Width="400" FontWeight="Bold" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Tên đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtTenDaiLy" Width="200" />
+                        <TextBox x:Name="txtTenDaiLy" Width="400" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Địa chỉ:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtDiaChi" Width="200" />
+                        <TextBox x:Name="txtDiaChi" Width="400" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <TextBlock Text="Số điện thoại:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtSDT" Width="200" />
+                        <TextBox x:Name="txtSDT" Width="400" />
                     </StackPanel>
                 </StackPanel>
 
                 <Border Grid.Column="1" Background="LightYellow" Margin="10" BorderBrush="LightGray" BorderThickness="1">
-                    <Image Stretch="Uniform" />
+                    <Image Source="/Images/daily.png" Stretch="Fill" />
                 </Border>
             </Grid>
         </Border>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-            <Button x:Name="btnThem" Content="Thêm" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
-            <Button x:Name="btnCapNhat" Content="Cập nhật" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
-            <Button x:Name="btnXoa" Content="Xóa" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
-            <Button x:Name="btnThoat" Content="Thoát" Width="80" Height="30" Background="#FFF9F1D1" Margin="5"/>
+            <Button x:Name="btnThem" Content="Thêm" Style="{StaticResource ActionButton}" Background="#4CAF50" Click="BtnThem_Click"/>
+            <Button x:Name="btnSua" Content="Sửa" Style="{StaticResource ActionButton}" Background="#FFC107" Click="BtnSua_Click"/>
+            <Button x:Name="btnXoa" Content="Xóa" Style="{StaticResource ActionButton}" Background="#F44336" Click="BtnXoa_Click"/>
+            <Button x:Name="btnTimKiem" Content="Tìm Kiếm" Style="{StaticResource ActionButton}" Background="#2196F3" Click="BtnTimKiem_Click"/>
+            <Button x:Name="BtnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Click="BtnReset_Click"/>
         </StackPanel>
 
         <GroupBox Grid.Row="3" Header="Danh Sách Đại Lí" Margin="10,0,10,10">
             <DataGrid x:Name="dgDaiLy"
-          AutoGenerateColumns="False"
-          IsReadOnly="True"
-          HeadersVisibility="Column"
-          RowHeight="32"
-          CanUserAddRows="False"
-          Background="White">
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      RowHeight="32"
+                      CanUserAddRows="False"
+                      Background="White" SelectionChanged="DgDaiLy_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã" Width="*" Binding="{Binding MaDaiLy}" />
-                    <DataGridTextColumn Header="Tên đại lí" Width="2*" Binding="{Binding TenDaiLy}" />
+                    <DataGridTextColumn Header="Mã" Width="*" Binding="{Binding MaDaily}" />
+                    <DataGridTextColumn Header="Tên đại lí" Width="2*" Binding="{Binding TenDaily}" />
                     <DataGridTextColumn Header="Địa chỉ" Width="2*" Binding="{Binding DiaChi}" />
                     <DataGridTextColumn Header="SĐT" Width="*" Binding="{Binding SoDienThoai}" />
                 </DataGrid.Columns>
