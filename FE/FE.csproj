@@ -218,6 +218,7 @@
       <DependentUpon>Database_SP.mdf</DependentUpon>
     </Content>
     <Resource Include="Images\daily.png" />
+    <Resource Include="Images\Quanlysanpham.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

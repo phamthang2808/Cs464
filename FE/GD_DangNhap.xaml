@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FE"
         mc:Ignorable="d"
-        Title="Đăng Nhập" Height="600" Width="950"
+        Title="Đăng Nhập" Height="700" Width="1000"
         WindowStartupLocation="CenterScreen"
         Background="#F0F2F5">
 

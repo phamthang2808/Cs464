@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FE"
         mc:Ignorable="d"
         Title="Trang Chủ"
-        Height="600" Width="950"
+        Height="700" Width="1000"
         WindowStartupLocation="CenterScreen"
         Background="#F4F6F9">
     <DockPanel>

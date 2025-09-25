@@ -103,18 +103,27 @@ namespace FE
             }
             else
             {
-                THONGTINDAILY daily = db.THONGTINDAILY.Find(daily_chon.MaDaily);
+                var result = MessageBox.Show(
+                        "Bạn có chắc muốn xóa sản phẩm này?",
+                        "Xác nhận xóa",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Warning);
 
-                if (daily.HOADON.Any())
+                if (result == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show("Không thể xóa vì đại lý này còn hóa đơn liên quan.");
-                    return;
+                    THONGTINDAILY daily = db.THONGTINDAILY.Find(daily_chon.MaDaily);
+
+                    if (daily.HOADON.Any())
+                    {
+                        MessageBox.Show("Không thể xóa vì đại lý này còn hóa đơn liên quan.");
+                        return;
+                    }
+                    db.THONGTINDAILY.Remove(daily);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa đại lý thành công");
+                    loadDaiLy();
+                    SetTextBoxEditable(txtMaDaiLy, false);
                 }
-                db.THONGTINDAILY.Remove(daily);
-                db.SaveChanges();
-                MessageBox.Show("Xóa đại lý thành công");
-                loadDaiLy();
-                SetTextBoxEditable(txtMaDaiLy, false);
             }
         }
 

@@ -4,60 +4,85 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:FE"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              Loaded="UserControl_Loaded"
-             d:DesignHeight="600" d:DesignWidth="900"
+             d:DesignHeight="700" d:DesignWidth="1000"
              Background="WhiteSmoke">
     <Grid Margin="10">
         <Grid.Resources>
             <Style x:Key="ActionButton" TargetType="{x:Type Button}">
-                <Setter Property="Width" Value="80"/>
-                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="90"/>
+                <Setter Property="Height" Value="35"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Margin" Value="5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Grid.Resources>
 
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="THÔNG TIN ĐẠI LÍ" FontSize="24" FontWeight="Bold" Foreground="Blue" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+        <TextBlock Grid.Row="0" Text="QUẢN LÝ THÔNG TIN ĐẠI LÍ" FontSize="26" FontWeight="ExtraBold" Foreground="#1976D2" HorizontalAlignment="Center" Margin="0,15,0,15"/>
 
-        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10,0,10,10" Background="White">
+        <Border Grid.Row="1" BorderBrush="#E0E0E0" BorderThickness="1" Margin="10,0,10,10" Background="White" CornerRadius="5" Padding="10">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3.5*" />
+                    <ColumnDefinition Width="1.5*" />
                 </Grid.ColumnDefinitions>
+
                 <StackPanel Margin="20" VerticalAlignment="Center" Grid.Column="0">
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <TextBlock Text="Mã đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtMaDaiLy" Width="400" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                        <TextBlock Text="Mã đại lí:" Width="120" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" />
+                        <TextBox x:Name="txtMaDaiLy" Width="400" FontSize="16" Padding="5" BorderBrush="#BDBDBD"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <TextBlock Text="Tên đại lí:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtTenDaiLy" Width="400" />
+                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                        <TextBlock Text="Tên đại lí:" Width="120" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" />
+                        <TextBox x:Name="txtTenDaiLy" Width="400" FontSize="16" Padding="5" BorderBrush="#BDBDBD"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <TextBlock Text="Địa chỉ:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtDiaChi" Width="400" />
+                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                        <TextBlock Text="Địa chỉ:" Width="120" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" />
+                        <TextBox x:Name="txtDiaChi" Width="400" FontSize="16" Padding="5" BorderBrush="#BDBDBD"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <TextBlock Text="Số điện thoại:" Width="100" VerticalAlignment="Center" />
-                        <TextBox x:Name="txtSDT" Width="400" />
+                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                        <TextBlock Text="Số điện thoại:" Width="120" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" />
+                        <TextBox x:Name="txtSDT" Width="400" FontSize="16" Padding="5" BorderBrush="#BDBDBD"/>
                     </StackPanel>
                 </StackPanel>
 
-                <Border Grid.Column="1" Background="LightYellow" Margin="10" BorderBrush="LightGray" BorderThickness="1">
-                    <Image Source="/Images/daily.png" Stretch="Fill" />
+                <Border Grid.Column="1"
+                        Background="#F5F5F5"
+                        Margin="10"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="200"
+                        Height="200"
+                        CornerRadius="5">
+                    <Image Source="/Images/daily.png" Stretch="Uniform" />
                 </Border>
             </Grid>
         </Border>
@@ -70,14 +95,15 @@
             <Button x:Name="BtnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Click="BtnReset_Click"/>
         </StackPanel>
 
-        <GroupBox Grid.Row="3" Header="Danh Sách Đại Lí" Margin="10,0,10,10">
+        <GroupBox Grid.Row="3" Header="Danh Sách Đại Lí" Margin="10,0,10,10" Padding="5">
             <DataGrid x:Name="dgDaiLy"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                       HeadersVisibility="Column"
                       RowHeight="32"
                       CanUserAddRows="False"
-                      Background="White" SelectionChanged="DgDaiLy_SelectionChanged">
+                      Background="White"
+                      SelectionChanged="DgDaiLy_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã" Width="*" Binding="{Binding MaDaily}" />
                     <DataGridTextColumn Header="Tên đại lí" Width="2*" Binding="{Binding TenDaily}" />
