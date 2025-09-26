@@ -1,11 +1,26 @@
-﻿# Visual Studio temporary files
+﻿# Tệp/Thư mục tạm thời của Visual Studio (VS) và Project
+
+# 1. Thư mục tạm thời của Visual Studio và IDE
 .vs/
+[Dd]ebug/
+[Rr]elease/
+**/[Bb]in/
+**/[Oo]bj/
+
+# 2. Các tệp tạm thời của VS (Solution User Options, SQLITE IDE files)
+# Các tệp này lưu cài đặt cá nhân của người dùng, không nên chia sẻ.
 *.suo
 *.user
+
+# 3. Tệp tạm thời của SQLite3 (Được thấy trong Server\sqlite3\)
+# Đây là các tệp nhật ký và khóa tạm thời của SQLite.
 *.db.lock
 *.ide-shm
 *.ide-wal
+
+# 4. Tệp thực thi và debug
 *.exe
 *.pdb
-bin/
-obj/
+
+# 5. Tệp cơ sở dữ liệu (Nếu bạn dùng tệp này như một DB tạm thời)
+*.sqlite
