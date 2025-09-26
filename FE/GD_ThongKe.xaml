@@ -27,7 +27,7 @@
             <Button Content="Tìm kiếm" Width="100" Height="30" 
                     Background="#CD5C5C" Foreground="White" 
                     FontWeight="SemiBold" BorderThickness="0" 
-                    Click="BtnTimKiem_Click"/>
+                    />
         </StackPanel>
 
         <!-- Khu vực biểu đồ -->

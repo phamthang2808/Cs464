@@ -23,16 +23,6 @@ namespace FE
             MainContent.Content = new QL_SanPham();
         }
 
-        private void Btn_HoaDonBan_Click(object sender, RoutedEventArgs e)
-        {
-            MainContent.Content = new GD_HoaDonBanHang();
-        }
-
-        private void Btn_HoaDonMua_Click(object sender, RoutedEventArgs e)
-        {
-            MainContent.Content = new GD_HoaDonMuaHang();
-        }
-
         private void Btn_ThongKe_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new GD_ThongKe();
@@ -41,6 +31,11 @@ namespace FE
         private void Btn_DaiLy_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new GiaodienDaiLy();
+        }
+
+        private void BtnHoaDon_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new GD_DSHoadon();
         }
     }
 }

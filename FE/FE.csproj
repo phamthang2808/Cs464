@@ -104,11 +104,11 @@
     <Compile Include="GD_DangKy.xaml.cs">
       <DependentUpon>GD_DangKy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GD_HoaDonBanHang.xaml.cs">
-      <DependentUpon>GD_HoaDonBanHang.xaml</DependentUpon>
+    <Compile Include="GD_DSHoadon.xaml.cs">
+      <DependentUpon>GD_DSHoadon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GD_HoaDonMuaHang.xaml.cs">
-      <DependentUpon>GD_HoaDonMuaHang.xaml</DependentUpon>
+    <Compile Include="GD_ChiTietSanPhamHD.xaml.cs">
+      <DependentUpon>GD_ChiTietSanPhamHD.xaml</DependentUpon>
     </Compile>
     <Compile Include="GD_ThongKe.xaml.cs">
       <DependentUpon>GD_ThongKe.xaml</DependentUpon>
@@ -137,11 +137,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GD_HoaDonBanHang.xaml">
+    <Page Include="GD_DSHoadon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GD_HoaDonMuaHang.xaml">
+    <Page Include="GD_ChiTietSanPhamHD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

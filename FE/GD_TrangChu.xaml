@@ -27,21 +27,14 @@
                     Cursor="Hand"
                     Click="Btn_SanPham_Click"/>
 
-            <Button x:Name="btnHoaDonBan"
-                    Content="🛒 Hóa đơn bán"
-                    Width="150" Margin="5"
+            <!-- ✅ Nút mới: Quản lý hóa đơn -->
+            <Button x:Name="btnHoaDon"
+                    Content="📑 Quản lý hóa đơn"
+                    Width="180" Margin="5"
                     Foreground="White" Background="#2D89EF"
                     BorderThickness="0" FontWeight="Bold"
                     Cursor="Hand"
-                    Click="Btn_HoaDonBan_Click"/>
-
-            <Button x:Name="btnHoaDonMua"
-                    Content="🧾 Hóa đơn mua"
-                    Width="150" Margin="5"
-                    Foreground="White" Background="#2D89EF"
-                    BorderThickness="0" FontWeight="Bold"
-                    Cursor="Hand"
-                    Click="Btn_HoaDonMua_Click"/>
+                    Click="BtnHoaDon_Click"/>
 
             <Button x:Name="btnThongKe"
                     Content="📊 Thống kê"
