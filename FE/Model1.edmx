@@ -9,8 +9,8 @@
           <Key>
             <PropertyRef Name="MaChiTietHoaDon" />
           </Key>
-          <Property Name="MaChiTietHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaHoaDon" Type="int" />
+          <Property Name="MaChiTietHoaDon" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaHoaDon" Type="nchar" MaxLength="10" />
           <Property Name="MaSanPham" Type="varchar" MaxLength="50" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaHoaDon" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayLap" Type="date" />
           <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
           <Property Name="LoaiHoaDon" Type="nvarchar" MaxLength="50" />
@@ -34,6 +34,7 @@
           <Property Name="SoLuongTon" Type="int" />
           <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
           <Property Name="GiaBan" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GiaMua" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -51,7 +52,7 @@
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
           <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
         </EntityType>
-        <Association Name="FK__CHITIETHO__MaHoa__3F466844">
+        <Association Name="FK__CHITIETHO__MaHoa__5EBF139D">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -63,7 +64,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHITIETHO__MaSan__403A8C7D">
+        <Association Name="FK__CHITIETHO__MaSan__5FB337D6">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -75,7 +76,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MaDaily__49C3F6B7">
+        <Association Name="FK__HOADON__MaDaily__60A75C0F">
           <End Role="THONGTINDAILY" Type="Self.THONGTINDAILY" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,15 +94,15 @@
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THONGTINDAILY" EntityType="Self.THONGTINDAILY" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CHITIETHO__MaHoa__3F466844" Association="Self.FK__CHITIETHO__MaHoa__3F466844">
+          <AssociationSet Name="FK__CHITIETHO__MaHoa__5EBF139D" Association="Self.FK__CHITIETHO__MaHoa__5EBF139D">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHITIETHO__MaSan__403A8C7D" Association="Self.FK__CHITIETHO__MaSan__403A8C7D">
+          <AssociationSet Name="FK__CHITIETHO__MaSan__5FB337D6" Association="Self.FK__CHITIETHO__MaSan__5FB337D6">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MaDaily__49C3F6B7" Association="Self.FK__HOADON__MaDaily__49C3F6B7">
+          <AssociationSet Name="FK__HOADON__MaDaily__60A75C0F" Association="Self.FK__HOADON__MaDaily__60A75C0F">
             <End Role="THONGTINDAILY" EntitySet="THONGTINDAILY" />
             <End Role="HOADON" EntitySet="HOADON" />
           </AssociationSet>
@@ -115,25 +116,25 @@
           <Key>
             <PropertyRef Name="MaChiTietHoaDon" />
           </Key>
-          <Property Name="MaChiTietHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaHoaDon" Type="Int32" />
+          <Property Name="MaChiTietHoaDon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="MaSanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="HOADON" Relationship="Self.FK__CHITIETHO__MaHoa__3F466844" FromRole="CHITIETHOADON" ToRole="HOADON" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CHITIETHO__MaSan__403A8C7D" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__CHITIETHO__MaHoa__5EBF139D" FromRole="CHITIETHOADON" ToRole="HOADON" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CHITIETHO__MaSan__5FB337D6" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaHoaDon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="NgayLap" Type="DateTime" Precision="0" />
           <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="LoaiHoaDon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaDaily" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MaHoa__3F466844" FromRole="HOADON" ToRole="CHITIETHOADON" />
-          <NavigationProperty Name="THONGTINDAILY" Relationship="Self.FK__HOADON__MaDaily__49C3F6B7" FromRole="HOADON" ToRole="THONGTINDAILY" />
+          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MaHoa__5EBF139D" FromRole="HOADON" ToRole="CHITIETHOADON" />
+          <NavigationProperty Name="THONGTINDAILY" Relationship="Self.FK__HOADON__MaDaily__60A75C0F" FromRole="HOADON" ToRole="THONGTINDAILY" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
@@ -144,7 +145,8 @@
           <Property Name="SoLuongTon" Type="Int32" />
           <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaBan" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MaSan__403A8C7D" FromRole="SANPHAM" ToRole="CHITIETHOADON" />
+          <Property Name="GiaMua" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CHITIETHOADON" Relationship="Self.FK__CHITIETHO__MaSan__5FB337D6" FromRole="SANPHAM" ToRole="CHITIETHOADON" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -161,9 +163,9 @@
           <Property Name="TenDaily" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="HOADON" Relationship="Self.FK__HOADON__MaDaily__49C3F6B7" FromRole="THONGTINDAILY" ToRole="HOADON" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__HOADON__MaDaily__60A75C0F" FromRole="THONGTINDAILY" ToRole="HOADON" />
         </EntityType>
-        <Association Name="FK__CHITIETHO__MaHoa__3F466844">
+        <Association Name="FK__CHITIETHO__MaHoa__5EBF139D">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -175,7 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CHITIETHO__MaSan__403A8C7D">
+        <Association Name="FK__CHITIETHO__MaSan__5FB337D6">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -187,7 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MaDaily__49C3F6B7">
+        <Association Name="FK__HOADON__MaDaily__60A75C0F">
           <End Role="THONGTINDAILY" Type="Self.THONGTINDAILY" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -205,15 +207,15 @@
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" />
           <EntitySet Name="THONGTINDAILY" EntityType="Self.THONGTINDAILY" />
-          <AssociationSet Name="FK__CHITIETHO__MaHoa__3F466844" Association="Self.FK__CHITIETHO__MaHoa__3F466844">
+          <AssociationSet Name="FK__CHITIETHO__MaHoa__5EBF139D" Association="Self.FK__CHITIETHO__MaHoa__5EBF139D">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__CHITIETHO__MaSan__403A8C7D" Association="Self.FK__CHITIETHO__MaSan__403A8C7D">
+          <AssociationSet Name="FK__CHITIETHO__MaSan__5FB337D6" Association="Self.FK__CHITIETHO__MaSan__5FB337D6">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MaDaily__49C3F6B7" Association="Self.FK__HOADON__MaDaily__49C3F6B7">
+          <AssociationSet Name="FK__HOADON__MaDaily__60A75C0F" Association="Self.FK__HOADON__MaDaily__60A75C0F">
             <End Role="THONGTINDAILY" EntitySet="THONGTINDAILY" />
             <End Role="HOADON" EntitySet="HOADON" />
           </AssociationSet>
@@ -254,6 +256,7 @@
                 <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
                 <ScalarProperty Name="DonVi" ColumnName="DonVi" />
                 <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="GiaMua" ColumnName="GiaMua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation; // thêm
-using System.Windows.Shapes;
 using Microsoft.VisualBasic; // để dùng Interaction.InputBox
 
 namespace FE
@@ -42,17 +33,29 @@ namespace FE
                 return;
             }
 
+            if (!int.TryParse(txtSoLuong.Text, out int soLuong))
+            {
+                MessageBox.Show("Số lượng không hợp lệ");
+                return;
+            }
+
+            if (!decimal.TryParse(txtGiaMua.Text, out decimal giaMua))
+            {
+                MessageBox.Show("Giá mua không hợp lệ");
+                return;
+            }
+
+            if (!decimal.TryParse(txtGiaBan.Text, out decimal giaBan))
+            {
+                MessageBox.Show("Giá bán không hợp lệ");
+                return;
+            }
+
             var existing = db.SANPHAM.FirstOrDefault(s => s.MaSanPham == ma);
             if (existing != null)
             {
                 MessageBox.Show("Mã sản phẩm đã tồn tại, vui lòng nhập mã khác!");
                 return;
-            }
-
-            var local = db.SANPHAM.Local.FirstOrDefault(s => s.MaSanPham == ma);
-            if (local != null)
-            {
-                db.Entry(local).State = System.Data.Entity.EntityState.Detached;
             }
 
             try
@@ -61,9 +64,10 @@ namespace FE
                 {
                     MaSanPham = ma,
                     TenSanPham = txtTenSP.Text.Trim(),
-                    SoLuongTon = int.Parse(txtSoLuong.Text),
+                    SoLuongTon = soLuong,
                     DonVi = txtDonVi.Text.Trim(),
-                    GiaBan = decimal.Parse(txtGia.Text)
+                    GiaMua = giaMua,
+                    GiaBan = giaBan
                 };
 
                 db.SANPHAM.Add(sp);
@@ -71,6 +75,7 @@ namespace FE
 
                 MessageBox.Show("Thêm sản phẩm thành công");
                 LoadData();
+                ResetForm();
             }
             catch (Exception ex)
             {
@@ -87,19 +92,39 @@ namespace FE
                 return;
             }
 
+            if (!int.TryParse(txtSoLuong.Text, out int soLuong))
+            {
+                MessageBox.Show("Số lượng không hợp lệ");
+                return;
+            }
+
+            if (!decimal.TryParse(txtGiaMua.Text, out decimal giaMua))
+            {
+                MessageBox.Show("Giá mua không hợp lệ");
+                return;
+            }
+
+            if (!decimal.TryParse(txtGiaBan.Text, out decimal giaBan))
+            {
+                MessageBox.Show("Giá bán không hợp lệ");
+                return;
+            }
+
             try
             {
                 SANPHAM sp = db.SANPHAM.Find(sp_chon.MaSanPham);
                 if (sp != null)
                 {
                     sp.TenSanPham = txtTenSP.Text.Trim();
-                    sp.SoLuongTon = int.Parse(txtSoLuong.Text);
+                    sp.SoLuongTon = soLuong;
                     sp.DonVi = txtDonVi.Text.Trim();
-                    sp.GiaBan = decimal.Parse(txtGia.Text);
+                    sp.GiaMua = giaMua;
+                    sp.GiaBan = giaBan;
 
                     db.SaveChanges();
                     MessageBox.Show($"Sửa thông tin sản phẩm {sp_chon.TenSanPham} thành công");
                     LoadData();
+                    ResetForm();
                 }
             }
             catch (Exception ex)
@@ -117,6 +142,13 @@ namespace FE
                 return;
             }
 
+            var chiTiet = db.CHITIETHOADON.Where(c => c.MaSanPham == sp_chon.MaSanPham).ToList();
+            if (chiTiet.Any())
+            {
+                MessageBox.Show("Không thể xóa vì sản phẩm này đã có trong chi tiết hóa đơn!");
+                return;
+            }
+
             var result = MessageBox.Show(
                 "Bạn có chắc muốn xóa sản phẩm này?",
                 "Xác nhận xóa",
@@ -127,22 +159,19 @@ namespace FE
             {
                 try
                 {
-                    SANPHAM sp = db.SANPHAM.Find(sp_chon.MaSanPham);
-                    if (sp != null)
-                    {
-                        db.SANPHAM.Remove(sp);
-                        db.SaveChanges();
-                        MessageBox.Show("Xóa sản phẩm thành công");
-                        LoadData();
-                        SetTextBoxEditable(txtMaSP, false);
-                    }
+                    db.SANPHAM.Remove(sp_chon);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa sản phẩm thành công");
+                    LoadData();
+                    ResetForm();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi xóa: " + ex.Message);
+                    MessageBox.Show("Lỗi khi xóa: " + ex.InnerException?.Message);
                 }
             }
         }
+
 
         private void BtnTimKiem_Click(object sender, RoutedEventArgs e)
         {
@@ -154,8 +183,7 @@ namespace FE
                 return;
             }
 
-            var sp = dgSanPham.Items.Cast<SANPHAM>()
-                            .FirstOrDefault(s => s.MaSanPham == maTim);
+            var sp = db.SANPHAM.FirstOrDefault(s => s.MaSanPham == maTim);
 
             if (sp != null)
             {
@@ -171,14 +199,7 @@ namespace FE
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
-            SetTextBoxEditable(txtMaSP, false);
-            txtMaSP.Text = "";
-            txtTenSP.Text = "";
-            txtSoLuong.Text = "";
-            txtDonVi.Text = "";
-            txtGia.Text = "";
-            dgSanPham.SelectedItem = null;
-            dgSanPham.ScrollIntoView(0);
+            ResetForm();
         }
 
         private void DgSanPham_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -186,11 +207,7 @@ namespace FE
             SANPHAM sp = dgSanPham.SelectedItem as SANPHAM;
             if (sp == null)
             {
-                txtMaSP.Text = "";
-                txtTenSP.Text = "";
-                txtSoLuong.Text = "";
-                txtDonVi.Text = "";
-                txtGia.Text = "";
+                ResetForm();
                 return;
             }
 
@@ -198,16 +215,11 @@ namespace FE
             txtTenSP.Text = sp.TenSanPham;
             txtSoLuong.Text = sp.SoLuongTon.ToString();
             txtDonVi.Text = sp.DonVi;
-            txtGia.Text = sp.GiaBan.ToString();
+            txtGiaMua.Text = sp.GiaMua.ToString();
+            txtGiaBan.Text = sp.GiaBan.ToString();
 
-            if (dgSanPham.SelectedItem != null)
-            {
-                SetTextBoxEditable(txtMaSP, true);
-            }
-            else
-            {
-                SetTextBoxEditable(txtMaSP, false);
-            }
+            // Khi chọn sản phẩm thì không cho sửa mã
+            SetTextBoxEditable(txtMaSP, false);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -217,18 +229,23 @@ namespace FE
 
         private void SetTextBoxEditable(TextBox textBox, bool editable)
         {
-            if (editable)
-            {
-                textBox.IsReadOnly = true;
-                textBox.Background = Brushes.LightGray;
-                textBox.Foreground = Brushes.DarkGray;
-            }
-            else
-            {
-                textBox.IsReadOnly = false;
-                textBox.Background = Brushes.White;
-                textBox.Foreground = Brushes.Black;
-            }
+            textBox.IsReadOnly = !editable;
+            textBox.Background = editable ? Brushes.White : Brushes.LightGray;
+            textBox.Foreground = editable ? Brushes.Black : Brushes.DarkGray;
+        }
+
+        private void ResetForm()
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtSoLuong.Text = "";
+            txtDonVi.Text = "";
+            txtGiaMua.Text = "";
+            txtGiaBan.Text = "";
+            dgSanPham.SelectedItem = null;
+
+            // Cho phép nhập lại mã mới
+            SetTextBoxEditable(txtMaSP, true);
         }
     }
 }

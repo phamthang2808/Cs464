@@ -20,7 +20,7 @@ namespace FE
             this.CHITIETHOADON = new HashSet<CHITIETHOADON>();
         }
     
-        public int MaHoaDon { get; set; }
+        public string MaHoaDon { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<decimal> TongTien { get; set; }
         public string LoaiHoaDon { get; set; }

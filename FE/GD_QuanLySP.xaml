@@ -16,13 +16,11 @@
 							  ShadowDepth="2"
 							  Opacity="0.5"
 							  BlurRadius="5"/>
-
             <Style x:Key="InputLabelStyle" TargetType="{x:Type Label}">
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Foreground" Value="#555"/>
             </Style>
-
             <Style x:Key="InputFieldStyle" TargetType="{x:Type Control}">
                 <Setter Property="Height" Value="28"/>
                 <Setter Property="Padding" Value="8,0,0,0"/>
@@ -30,7 +28,6 @@
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="BorderBrush" Value="#BDC3C7"/>
             </Style>
-
             <Style x:Key="ActionButton" TargetType="{x:Type Button}">
                 <Setter Property="Width" Value="120"/>
                 <Setter Property="Height" Value="30"/>
@@ -44,7 +41,6 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
             <Style x:Key="SubHeaderStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="Foreground" Value="#555"/>
@@ -97,6 +93,8 @@
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
 
                     <Label Content="Mã SP" Grid.Row="0" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
@@ -111,10 +109,13 @@
                     <Label Content="Đơn vị" Grid.Row="6" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
                     <TextBox x:Name="txtDonVi" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
 
-                    <Label Content="Giá" Grid.Row="8" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtGia" Grid.Row="8" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Giá mua" Grid.Row="8" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox x:Name="txtGiaMua" Grid.Row="8" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
 
-                    <StackPanel Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" VerticalAlignment="Center">
+                    <Label Content="Giá bán" Grid.Row="10" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox x:Name="txtGiaBan" Grid.Row="10" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+
+                    <StackPanel Grid.Row="0" Grid.RowSpan="11" Grid.Column="2" VerticalAlignment="Center">
                         <Button x:Name="btnThemMoi" Content="Thêm mới" Style="{StaticResource ActionButton}" Background="#4CAF50" Margin="10,0,0,10" Click="BtnThem_Click"/>
                         <Button x:Name="btnSua" Content="Sửa" Style="{StaticResource ActionButton}" Background="#FFC107" Margin="10,0,0,10" Click="BtnSua_Click"/>
                         <Button x:Name="btnXoa" Content="Xóa" Style="{StaticResource ActionButton}" Background="#F44336" Margin="10,0,0,10" Click="BtnXoa_Click"/>
@@ -182,7 +183,8 @@
                         <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding TenSanPham}" Width="2*"/>
                         <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuongTon}" Width="*"/>
                         <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}" Width="*"/>
-                        <DataGridTextColumn Header="Giá" Binding="{Binding GiaBan, StringFormat={}{0:N0}}" Width="*"/>
+                        <DataGridTextColumn Header="Giá mua" Binding="{Binding GiaMua, StringFormat={}{0:N0}}" Width="*"/>
+                        <DataGridTextColumn Header="Giá bán" Binding="{Binding GiaBan, StringFormat={}{0:N0}}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
