@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:FE"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d"
              d:DesignHeight="480" d:DesignWidth="800"
              Background="#F0F0F0">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,17 +15,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Thanh tìm kiếm -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,20,0,10">
             <TextBlock Text="Tìm kiếm theo tháng:" VerticalAlignment="Center" FontSize="14" Margin="0,0,10,0"/>
-            <ComboBox Width="120" Height="28" SelectedIndex="0" Margin="0,0,10,0" BorderBrush="Gray" BorderThickness="1">
+            <ComboBox x:Name="cbThang" Width="140" Height="30" SelectedIndex="0" Margin="0,0,10,0">
                 <ComboBoxItem Content="Tháng 1/2024"/>
                 <ComboBoxItem Content="Tháng 2/2024"/>
                 <ComboBoxItem Content="Tháng 3/2024"/>
                 <ComboBoxItem Content="Tháng 4/2024"/>
             </ComboBox>
-            <Button Content="Tìm kiếm" Width="90" Height="28" Background="#CD5C5C" Foreground="White" FontWeight="SemiBold" BorderThickness="1" BorderBrush="#8B0000"/>
+            <Button Content="Tìm kiếm" Width="100" Height="30" 
+                    Background="#CD5C5C" Foreground="White" 
+                    FontWeight="SemiBold" BorderThickness="0" 
+                    Click="BtnTimKiem_Click"/>
         </StackPanel>
 
+        <!-- Khu vực biểu đồ -->
         <Grid Grid.Row="2" Margin="20,0,20,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -32,30 +38,24 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Padding="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Thống kê Doanh thu bán từng Sản phẩm theo tháng" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,10" HorizontalAlignment="Left"/>
-                    <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="0.5" Background="#F8F8F8">
-                        <TextBlock Text="[Vị trí biểu đồ cột]" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
-                    </Border>
-                </Grid>
+            <!-- Biểu đồ cột -->
+            <Border Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Thống kê Doanh thu bán từng Sản phẩm theo tháng" 
+                               FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
+
+                    <lvc:CartesianChart Series="{Binding ColumnSeries}" />
+                </StackPanel>
             </Border>
 
-            <Border Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Padding="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Thống kê % Sản phẩm bán theo doanh thu" FontWeight="SemiBold" FontSize="14" Margin="0,0,0,10" HorizontalAlignment="Left"/>
-                    <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="0.5" Background="#F8F8F8">
-                        <TextBlock Text="[Vị trí biểu đồ tròn]" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="12"/>
-                    </Border>
-                </Grid>
+            <!-- Biểu đồ tròn -->
+            <Border Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Thống kê % Sản phẩm bán theo doanh thu" 
+                               FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
+
+                    <lvc:PieChart Series="{Binding PieSeries}" />
+                </StackPanel>
             </Border>
         </Grid>
     </Grid>
