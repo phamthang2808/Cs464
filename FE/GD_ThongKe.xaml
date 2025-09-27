@@ -12,25 +12,33 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,20,0,10">
-            <TextBlock Text="Tìm kiếm theo tháng:" VerticalAlignment="Center" FontSize="14" Margin="0,0,10,0"/>
+        <TextBlock Grid.Row="0"
+                   Text="THỐNG KÊ"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#007ACC"  HorizontalAlignment="Left"
+                   Margin="20,10,0,10"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,10">
+            <TextBlock Text="Tìm kiếm theo tháng:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" FontWeight="Bold"/>
             <DatePicker x:Name="dpThang" Width="140" Height="30"
                         SelectedDate="{x:Static sys:DateTime.Now}"
                         DisplayDateStart="2020-01-01"
                         DisplayDateEnd="2030-12-31"
-                        Margin="0,0,10,0"/>
+                        Margin="0,0,10,0" FontSize="16" FontWeight="Bold"/>
 
             <Button Content="Tìm kiếm" Width="100" Height="30" 
-                    Background="#CD5C5C" Foreground="White" 
-                    FontWeight="SemiBold" BorderThickness="0" Click="Button_Click" 
+                    Background="#FF09D2F1" Foreground="White" 
+                    FontWeight="SemiBold" BorderThickness="0" Click="Button_Click" FontSize="16" 
                     />
         </StackPanel>
 
-        <Grid Grid.Row="2" Margin="20,0,20,20">
+        <Grid Grid.Row="3" Margin="20,0,20,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="15"/>
@@ -40,7 +48,7 @@
             <Border Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
                 <StackPanel>
                     <TextBlock Text="Thống kê Doanh thu bán từng Sản phẩm theo tháng" 
-                               FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
+                               FontWeight="SemiBold" FontSize="14" Margin="0,0,0,10" HorizontalAlignment="Center"/>
 
                     <lvc:CartesianChart Series="{Binding ColumnSeries}" Height="300">
                         <lvc:CartesianChart.AxisX>
@@ -59,7 +67,7 @@
             <Border Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
                 <StackPanel>
                     <TextBlock Text="Thống kê % Sản phẩm bán theo doanh thu" 
-                               FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
+                               FontWeight="SemiBold" FontSize="14" Margin="0,0,0,10" HorizontalAlignment="Center"/>
 
                     <lvc:PieChart Series="{Binding PieSeries}" 
                                   InnerRadius="50" 
