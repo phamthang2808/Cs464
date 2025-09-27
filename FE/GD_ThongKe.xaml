@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d"
              d:DesignHeight="480" d:DesignWidth="800"
@@ -15,22 +16,20 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Thanh tìm kiếm -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,20,0,10">
             <TextBlock Text="Tìm kiếm theo tháng:" VerticalAlignment="Center" FontSize="14" Margin="0,0,10,0"/>
-            <ComboBox x:Name="cbThang" Width="140" Height="30" SelectedIndex="0" Margin="0,0,10,0">
-                <ComboBoxItem Content="Tháng 1/2024"/>
-                <ComboBoxItem Content="Tháng 2/2024"/>
-                <ComboBoxItem Content="Tháng 3/2024"/>
-                <ComboBoxItem Content="Tháng 4/2024"/>
-            </ComboBox>
+            <DatePicker x:Name="dpThang" Width="140" Height="30"
+                        SelectedDate="{x:Static sys:DateTime.Now}"
+                        DisplayDateStart="2020-01-01"
+                        DisplayDateEnd="2030-12-31"
+                        Margin="0,0,10,0"/>
+
             <Button Content="Tìm kiếm" Width="100" Height="30" 
                     Background="#CD5C5C" Foreground="White" 
-                    FontWeight="SemiBold" BorderThickness="0" 
+                    FontWeight="SemiBold" BorderThickness="0" Click="Button_Click" 
                     />
         </StackPanel>
 
-        <!-- Khu vực biểu đồ -->
         <Grid Grid.Row="2" Margin="20,0,20,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -38,23 +37,38 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Biểu đồ cột -->
             <Border Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
                 <StackPanel>
                     <TextBlock Text="Thống kê Doanh thu bán từng Sản phẩm theo tháng" 
                                FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
 
-                    <lvc:CartesianChart Series="{Binding ColumnSeries}" />
+                    <lvc:CartesianChart Series="{Binding ColumnSeries}" Height="300">
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Labels="{Binding Labels}" 
+                                      FontSize="12" 
+                                      Separator="{x:Static lvc:DefaultAxes.CleanSeparator}"/>
+                        </lvc:CartesianChart.AxisX>
+
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis LabelFormatter="{Binding YFormatter}"/>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
                 </StackPanel>
             </Border>
 
-            <!-- Biểu đồ tròn -->
             <Border Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10">
                 <StackPanel>
                     <TextBlock Text="Thống kê % Sản phẩm bán theo doanh thu" 
                                FontWeight="SemiBold" FontSize="15" Margin="0,0,0,10"/>
 
-                    <lvc:PieChart Series="{Binding PieSeries}" />
+                    <lvc:PieChart Series="{Binding PieSeries}" 
+                                  InnerRadius="50" 
+                                  Height="300"
+                                  LegendLocation="Bottom">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend FontSize="14"/>
+                        </lvc:PieChart.ChartLegend>
+                    </lvc:PieChart>
                 </StackPanel>
             </Border>
         </Grid>
