@@ -19,7 +19,15 @@ namespace FE
         public string MaSanPham { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
-    
+
+        public decimal ThanhTien
+        {
+            get
+            {
+                return (SoLuong ?? 0) * (DonGia ?? 0);
+            }
+        }
+
         public virtual HOADON HOADON { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }

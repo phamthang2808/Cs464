@@ -7,22 +7,15 @@
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Tiêu đề -->
             <RowDefinition Height="Auto"/>
-            <!-- Thông tin hóa đơn -->
             <RowDefinition Height="Auto"/>
-            <!-- Nhập liệu + nút -->
             <RowDefinition Height="*"/>
-            <!-- DataGrid chi tiết -->
             <RowDefinition Height="Auto"/>
-            <!-- Nút Lưu + Thoát -->
         </Grid.RowDefinitions>
 
-        <!-- Tiêu đề -->
         <TextBlock Text="CHI TIẾT SẢN PHẨM TRONG HÓA ĐƠN"
                    FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15" Grid.Row="0"/>
 
-        <!-- Thông tin hóa đơn -->
         <Grid Grid.Row="1" Margin="0,0,0,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -31,60 +24,71 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Margin="10" Orientation="Vertical">
-                <TextBlock Text="Mã hóa đơn:" FontWeight="SemiBold"/>
-                <TextBox x:Name="txtMaHoaDon" IsReadOnly="True" Background="#EEE" />
+                <TextBlock Text="Mã hóa đơn:" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="txtMaHoaDon" IsReadOnly="True" Background="#EEE" FontSize="16" FontWeight="Bold" Foreground="#FF58EE12" />
             </StackPanel>
 
             <StackPanel Margin="10" Orientation="Vertical" Grid.Column="1">
-                <TextBlock Text="Ngày lập:" FontWeight="SemiBold"/>
-                <DatePicker x:Name="dtpNgayLap"/>
+                <TextBlock Text="Ngày lập:" FontWeight="Bold" FontSize="16"/>
+                <DatePicker x:Name="dtpNgayLap" IsEnabled="False" FontSize="16" FontWeight="Bold" Foreground="#FFE01A1A"/>
             </StackPanel>
 
             <StackPanel Margin="10" Orientation="Vertical" Grid.Column="2">
-                <TextBlock Text="Tổng tiền:" FontWeight="SemiBold"/>
+                <TextBlock Text="Tổng tiền:" FontWeight="Bold" FontSize="16"/>
                 <TextBlock x:Name="txtTongTien" FontWeight="Bold" FontSize="16" Foreground="#2980B9"/>
             </StackPanel>
         </Grid>
 
-        <!-- Nhập liệu + nút thao tác -->
         <Grid Grid.Row="2" Margin="0,0,0,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
-                <!-- Khối nhập liệu -->
                 <ColumnDefinition Width="1*"/>
-                <!-- Khối nút -->
             </Grid.ColumnDefinitions>
 
-            <!-- Khối nhập liệu: 4 trường -->
             <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Tên mặt hàng:" Width="130" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"/>
-                    <ComboBox x:Name="cbTenMatHang" Width="250" Height="30" FontSize="16" DisplayMemberPath="TenSanPham" SelectedValuePath="MaSanPham"/>
+                    <ComboBox x:Name="cbTenMatHang" Width="250" Height="30" FontSize="16" DisplayMemberPath="TenSanPham" SelectedValuePath="MaSanPham" SelectionChanged="CbTenMatHang_SelectionChanged" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Số lượng:" Width="130" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"/>
-                    <TextBox x:Name="txtSoLuong" Width="250" Height="30" FontSize="16"/>
+                    <TextBox x:Name="txtSoLuong" Width="250" Height="30" FontSize="16" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Đơn vị tính:" Width="130" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"/>
-                    <TextBox x:Name="txtDonViTinh" Width="250" Height="30" FontSize="16"/>
+                    <TextBox x:Name="txtDonViTinh" Width="250" Height="30" FontSize="16" IsReadOnly="True" Background="#EEE" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8">
                     <TextBlock Text="Giá (Đơn giá):" Width="130" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"/>
-                    <TextBox x:Name="txtGia" Width="250" Height="30" FontSize="16"/>
+                    <TextBox x:Name="txtGia" Width="250" Height="30" FontSize="16" IsEnabled="False" FontWeight="Bold"/>
                 </StackPanel>
             </StackPanel>
 
-            <!-- Khối nút: Thêm, Xóa, Sửa, Thoát -->
-            <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" >
-                <Button Content="Thêm SP" Width="90" Height="35" Background="#27AE60" Foreground="White" Margin="0,5" Click="btnThemChiTiet_Click"/>
-                <Button Content="Xóa SP" Width="90" Height="35" Background="#E74C3C" Foreground="White" Margin="0,5" Click="btnXoaChiTiet_Click"/>
-                <Button Content="Sửa SP" Width="90" Height="35" Background="#F39C12" Foreground="White" Margin="0,5" Click="btnSuaChiTiet_Click"/>
-                <Button Content="Thoát" Width="90" Height="35" Background="#95A5A6" Foreground="White" Margin="0,5" Click="btnThoat_Click"/>
-            </StackPanel>
+            <Grid Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Hàng 1 -->
+                <Button Grid.Row="0" Grid.Column="0" Content="Thêm SP" Width="90" Height="35" Background="#27AE60" Foreground="White" Margin="5" Click="btnThemChiTiet_Click"/>
+                <Button Grid.Row="0" Grid.Column="1" Content="Xóa SP" Width="90" Height="35" Background="#E74C3C" Foreground="White" Margin="5" Click="btnXoaChiTiet_Click"/>
+
+                <!-- Hàng 2 -->
+                <Button Grid.Row="1" Grid.Column="0" Content="Sửa SP" Width="90" Height="35" Background="#F39C12" Foreground="White" Margin="5" Click="btnSuaChiTiet_Click"/>
+                <Button Grid.Row="1" Grid.Column="1" Content="Reset" Width="90" Height="35" Background="#3498DB" Foreground="White" Margin="5" Click="ButtonReset_Click"/>
+
+                <!-- Hàng 3 -->
+                <Button Grid.Row="2" Grid.Column="0" Content="Thoát" Width="90" Height="35" Background="#95A5A6" Foreground="White" Margin="5" Click="btnThoat_Click"/>
+            </Grid>
+
         </Grid>
 
-        <!-- DataGrid hiển thị chi tiết sản phẩm -->
         <DataGrid x:Name="dgChiTietHoaDon" Grid.Row="3" Margin="0"
                   AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"
                   RowHeight="32" HeadersVisibility="Column" GridLinesVisibility="None" BorderThickness="0" Background="White" SelectionChanged="DgChiTietHoaDon_SelectionChanged_1">
@@ -98,6 +102,5 @@
             </DataGrid.Columns>
         </DataGrid>
 
-       
     </Grid>
 </Window>
