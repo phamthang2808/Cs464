@@ -19,10 +19,10 @@
 
         <TextBlock Grid.Row="0"
                    Text="THỐNG KÊ"
-                   FontSize="24"
+                   FontSize="26"
                    FontWeight="Bold"
-                   Foreground="#007ACC"  HorizontalAlignment="Left"
-                   Margin="20,10,0,10"/>
+                   Foreground="#007ACC"  HorizontalAlignment="Center"
+                   Margin="20,10,0,10" FontFamily="Segoe UI Black"/>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,10">
             <TextBlock Text="Tìm kiếm theo tháng:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" FontWeight="Bold"/>

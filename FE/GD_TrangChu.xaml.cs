@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace FE
 {
@@ -9,6 +11,17 @@ namespace FE
         public GD_TrangChu()
         {
             InitializeComponent();
+            LoadTrangChuContent();
+        }
+
+        private void LoadTrangChuContent()
+        {
+            Image homeImage = new Image();
+            homeImage.Source = new BitmapImage(new Uri("/Images/trangchu.png", UriKind.Relative));
+            homeImage.Stretch = Stretch.Fill;
+            homeImage.Margin = new Thickness(0);
+
+            MainContent.Content = homeImage;
         }
 
         private void Btn_TrangChu_Click(object sender, RoutedEventArgs e)

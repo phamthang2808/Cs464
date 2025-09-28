@@ -235,6 +235,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_SP.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\trangchu.png" />
+    <Resource Include="Images\dangnhap.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

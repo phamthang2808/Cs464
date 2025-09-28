@@ -52,7 +52,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="QUẢN LÝ DANH SÁCH HÓA ĐƠN" FontSize="26" FontWeight="ExtraBold" 
-                   Foreground="#1976D2" HorizontalAlignment="Center" Margin="0,15,0,15"/>
+                   Foreground="#1976D2" HorizontalAlignment="Center" Margin="0,15,0,15" FontFamily="Segoe UI Black"/>
 
         <Border Grid.Row="1" BorderBrush="#E0E0E0" BorderThickness="1" Margin="10,0,10,10" 
                 Background="White" CornerRadius="5" Padding="20">
@@ -88,17 +88,17 @@
         </Border>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-            <Button x:Name="btnThem" Content="Thêm HĐ" Style="{StaticResource ActionButton}" Background="#4CAF50" Click="BtnThem_Click"/>
-            <Button x:Name="btnSua" Content="Sửa HĐ" Style="{StaticResource ActionButton}" Background="#FFC107" Click="BtnSua_Click"/>
-            <Button x:Name="btnXoa" Content="Xóa HĐ" Style="{StaticResource ActionButton}" Background="#F44336" Click="BtnXoa_Click"/>
+            <Button x:Name="btnThem" Content="Thêm HĐ" Style="{StaticResource ActionButton}" Background="#4CAF50" Click="BtnThem_Click" FontWeight="Bold"/>
+            <Button x:Name="btnSua" Content="Sửa HĐ" Style="{StaticResource ActionButton}" Background="#FFC107" Click="BtnSua_Click" FontWeight="Bold"/>
+            <Button x:Name="btnXoa" Content="Xóa HĐ" Style="{StaticResource ActionButton}" Background="#F44336" Click="BtnXoa_Click" FontWeight="Bold"/>
 
-            <Button x:Name="btnXemChiTiet" Content="Xem Chi Tiết" Style="{StaticResource ActionButton}" Background="#007ACC" Click="BtnXemChiTiet_Click" Width="120"/>
+            <Button x:Name="btnXemChiTiet" Content="Xem Chi Tiết" Style="{StaticResource ActionButton}" Background="#007ACC" Click="BtnXemChiTiet_Click" Width="120" FontWeight="Bold"/>
 
-            <Button x:Name="btnTimKiem" Content="Tìm Kiếm" Style="{StaticResource ActionButton}" Background="#2196F3" Click="BtnTimKiem_Click" Margin="5" Height="Auto"/>
-            <Button x:Name="BtnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Click="BtnReset_Click"/>
+            <Button x:Name="btnTimKiem" Content="Tìm Kiếm" Style="{StaticResource ActionButton}" Background="#2196F3" Click="BtnTimKiem_Click" Margin="5" Height="Auto" FontWeight="Bold"/>
+            <Button x:Name="BtnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Click="BtnReset_Click" FontWeight="Bold"/>
         </StackPanel>
 
-        <GroupBox Grid.Row="3" Header="Danh Sách Hóa Đơn" Margin="10,0,10,10" Padding="5">
+        <GroupBox Grid.Row="3" Header="Danh Sách Hóa Đơn" Margin="10,0,10,10" Padding="5" FontSize="16" FontWeight="Bold">
             <DataGrid x:Name="dgHoaDon"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"

@@ -56,11 +56,11 @@
 
         <TextBlock Grid.Row="0"
 				   Text="QUẢN LÝ SẢN PHẨM"
-				   FontSize="28"
+				   FontSize="26"
 				   FontWeight="Bold"
-				   Foreground="#2C3E50"
+				   Foreground="#1976D2"
 				   HorizontalAlignment="Center"
-				   Margin="0,15,0,10"/>
+				   Margin="0,15,0,10" FontFamily="Segoe UI Black"/>
 
         <Grid Grid.Row="1" Margin="20,0,20,0">
             <Grid.ColumnDefinitions>
@@ -97,30 +97,30 @@
                         <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
 
-                    <Label Content="Mã SP" Grid.Row="0" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtMaSP" Grid.Row="0" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Mã SP" Grid.Row="0" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtMaSP" Grid.Row="0" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
-                    <Label Content="Tên SP" Grid.Row="2" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtTenSP" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Tên SP" Grid.Row="2" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtTenSP" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
-                    <Label Content="Số lượng" Grid.Row="4" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtSoLuong" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Số lượng" Grid.Row="4" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtSoLuong" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
-                    <Label Content="Đơn vị" Grid.Row="6" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtDonVi" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Đơn vị" Grid.Row="6" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtDonVi" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
-                    <Label Content="Giá mua" Grid.Row="8" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtGiaMua" Grid.Row="8" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Giá mua" Grid.Row="8" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtGiaMua" Grid.Row="8" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
-                    <Label Content="Giá bán" Grid.Row="10" Grid.Column="0" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox x:Name="txtGiaBan" Grid.Row="10" Grid.Column="1" Style="{StaticResource InputFieldStyle}"/>
+                    <Label Content="Giá bán" Grid.Row="10" Grid.Column="0" Style="{StaticResource InputLabelStyle}" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="txtGiaBan" Grid.Row="10" Grid.Column="1" Style="{StaticResource InputFieldStyle}" FontSize="14"/>
 
                     <StackPanel Grid.Row="0" Grid.RowSpan="11" Grid.Column="2" VerticalAlignment="Center">
-                        <Button x:Name="btnThemMoi" Content="Thêm mới" Style="{StaticResource ActionButton}" Background="#4CAF50" Margin="10,0,0,10" Click="BtnThem_Click"/>
-                        <Button x:Name="btnSua" Content="Sửa" Style="{StaticResource ActionButton}" Background="#FFC107" Margin="10,0,0,10" Click="BtnSua_Click"/>
-                        <Button x:Name="btnXoa" Content="Xóa" Style="{StaticResource ActionButton}" Background="#F44336" Margin="10,0,0,10" Click="BtnXoa_Click"/>
-                        <Button x:Name="btnTimKiem" Content="Tìm Kiếm" Style="{StaticResource ActionButton}" Background="#2196F3" Margin="10,0,0,10" Click="BtnTimKiem_Click"/>
-                        <Button x:Name="btnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Margin="10,0,0,10" Click="BtnReset_Click"/>
+                        <Button x:Name="btnThemMoi" Content="Thêm mới" Style="{StaticResource ActionButton}" Background="#4CAF50" Margin="10,0,0,10" Click="BtnThem_Click" FontSize="14" FontWeight="Bold"/>
+                        <Button x:Name="btnSua" Content="Sửa" Style="{StaticResource ActionButton}" Background="#FFC107" Margin="10,0,0,10" Click="BtnSua_Click" FontSize="14" FontWeight="Bold"/>
+                        <Button x:Name="btnXoa" Content="Xóa" Style="{StaticResource ActionButton}" Background="#F44336" Margin="10,0,0,10" Click="BtnXoa_Click" FontSize="14" FontWeight="Bold"/>
+                        <Button x:Name="btnTimKiem" Content="Tìm Kiếm" Style="{StaticResource ActionButton}" Background="#2196F3" Margin="10,0,0,10" Click="BtnTimKiem_Click" FontSize="14" FontWeight="Bold"/>
+                        <Button x:Name="btnReset" Content="Reset" Style="{StaticResource ActionButton}" Background="#9E9E9E" Margin="10,0,0,10" Click="BtnReset_Click" FontSize="14" FontWeight="Bold"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -163,8 +163,8 @@
                 <TextBlock Grid.Row="0"
 					Text="Danh sách sản phẩm trong Cửa hàng"
 					Style="{StaticResource SubHeaderStyle}"
-					FontSize="18"
-					Margin="0,0,0,15"/>
+					FontSize="16"
+					Margin="0,0,0,15" FontWeight="Bold" HorizontalAlignment="Center"/>
 
                 <DataGrid x:Name="dgSanPham"
 					Grid.Row="1"
@@ -173,11 +173,11 @@
 					IsReadOnly="True"
 					HeadersVisibility="Column"
 					RowHeight="35"
-					FontSize="12"
+					FontSize="14"
 					GridLinesVisibility="All"
 					BorderThickness="1"
 					Background="White"
-					SelectionChanged="DgSanPham_SelectionChanged">
+					SelectionChanged="DgSanPham_SelectionChanged" FontWeight="Bold">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding MaSanPham}" Width="1*"/>
                         <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding TenSanPham}" Width="2*"/>
