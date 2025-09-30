@@ -7,13 +7,11 @@
 **/[Bb]in/
 **/[Oo]bj/
 
-# 2. Các tệp tạm thời của VS (Solution User Options, SQLITE IDE files)
-# Các tệp này lưu cài đặt cá nhân của người dùng, không nên chia sẻ.
+# 2. Các tệp tạm thời của VS 
 *.suo
 *.user
 
-# 3. Tệp tạm thời của SQLite3 (Được thấy trong Server\sqlite3\)
-# Đây là các tệp nhật ký và khóa tạm thời của SQLite.
+# 3. Tệp tạm thời của SQLite3
 *.db.lock
 *.ide-shm
 *.ide-wal
@@ -22,5 +20,5 @@
 *.exe
 *.pdb
 
-# 5. Tệp cơ sở dữ liệu (Nếu bạn dùng tệp này như một DB tạm thời)
+# 5. Tệp cơ sở dữ liệu
 *.sqlite
