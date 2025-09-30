@@ -19,7 +19,7 @@ namespace FE
     /// <summary>
     /// Interaction logic for GiaodienDaiLy.xaml
     /// </summary>
-    public partial class GiaodienDaiLy : UserControl // Changed from Window to UserControl
+    public partial class GiaodienDaiLy : UserControl 
     {
         public GiaodienDaiLy()
         {

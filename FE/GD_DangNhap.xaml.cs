@@ -71,7 +71,7 @@ namespace FE
                 txtHienThiMatKhau.Text = txtMatKhau.Password;
                 txtMatKhau.Visibility = Visibility.Collapsed;
                 txtHienThiMatKhau.Visibility = Visibility.Visible;
-                ((Button)sender).Content = "🔒"; // Thay đổi icon
+                ((Button)sender).Content = "🔒"; 
             }
             else
             {
@@ -79,7 +79,7 @@ namespace FE
                 txtMatKhau.Password = txtHienThiMatKhau.Text;
                 txtHienThiMatKhau.Visibility = Visibility.Collapsed;
                 txtMatKhau.Visibility = Visibility.Visible;
-                ((Button)sender).Content = "👁"; // Thay đổi icon
+                ((Button)sender).Content = "👁"; 
             }
         }
     }

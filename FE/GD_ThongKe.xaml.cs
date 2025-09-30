@@ -42,7 +42,6 @@ namespace FE
         {
             using (var db = new QL_SP_Entities1())
             {
-                // Lấy danh sách hóa đơn BÁN trong tháng/năm
                 var hoaDons = db.HOADON
                     .Where(hd => hd.NgayLap.HasValue &&
                                  hd.NgayLap.Value.Month == thang &&
@@ -75,7 +74,7 @@ namespace FE
                     .OrderByDescending(x => x.TongDoanhThu)
                     .ToList();
 
-                // Cập nhật biểu đồ cột (Chuyển decimal sang double)
+                // Cập nhật biểu đồ cột 
                 ColumnSeries = new SeriesCollection
                 {
                     new ColumnSeries
@@ -88,7 +87,7 @@ namespace FE
 
                 Labels = thongKe.Select(tk => tk.TenSanPham).ToArray();
 
-                // Cập nhật biểu đồ tròn (Chuyển decimal sang double)
+                // Cập nhật biểu đồ tròn 
                 PieSeries = new SeriesCollection();
                 foreach (var item in thongKe)
                 {

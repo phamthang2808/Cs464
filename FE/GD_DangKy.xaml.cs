@@ -58,7 +58,7 @@ namespace FE
 
                 // Thêm đối tượng vào Entity Context
                 db.TAIKHOAN.Add(newAccount);
-                db.SaveChanges(); // Lưu thay đổi vào database
+                db.SaveChanges();
 
                 MessageBox.Show("Đăng ký tài khoản thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 

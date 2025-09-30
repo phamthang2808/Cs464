@@ -142,7 +142,6 @@ namespace FE
                 return;
             }
 
-            // Tìm hóa đơn đầu tiên có tên đại lý khớp
             var hoaDon = dgHoaDon.Items.Cast<HOADON>()
                               .FirstOrDefault(hd =>
                                   hd.THONGTINDAILY != null &&
