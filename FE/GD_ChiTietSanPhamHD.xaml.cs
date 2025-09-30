@@ -5,7 +5,7 @@ using System.Windows;
 using System.Data.Entity;
 using System.Windows.Controls;
 using System.Data.Entity.Validation;
-using System.Globalization; // Thêm namespace để xử lý định dạng số
+using System.Globalization; 
 
 namespace FE
 {
@@ -21,7 +21,6 @@ namespace FE
             LoadSanPham();
         }
 
-        // KHẮC PHỤC LỖI: BỎ InitializeComponent() ở đây
         public Window_ChiTietHoaDon(string maHD) : this()
         {
             maHoaDon = maHD;
@@ -92,10 +91,9 @@ namespace FE
             }
         }
 
-        // KHẮC PHỤC LỖI: Đảm bảo Đơn giá và Đơn vị tính được tự động điền
         private void CbTenMatHang_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            // Nếu currentHoaDon là null thì không thể xác định LoaiHoaDon, sẽ không điền giá
+
             if (cbTenMatHang.SelectedItem is SANPHAM selectedSanPham && currentHoaDon != null)
             {
                 txtDonViTinh.Text = selectedSanPham.DonVi ?? "";
@@ -113,8 +111,6 @@ namespace FE
                     donGiaTuDong = selectedSanPham.GiaMua;
                 }
 
-                // Hiển thị giá, sử dụng CultureInfo.InvariantCulture để tránh lỗi phân cách thập phân
-                // Nếu giá là null, điền "0"
                 txtGia.Text = donGiaTuDong?.ToString(CultureInfo.InvariantCulture) ?? "0";
             }
             else
@@ -140,7 +136,6 @@ namespace FE
                 return;
             }
 
-            // KHẮC PHỤC LỖI: Sử dụng TryParse với CultureInfo để xử lý dấu chấm/phẩy chính xác
             if (!decimal.TryParse(txtGia.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal donGia) || donGia <= 0)
             {
                 MessageBox.Show("Giá phải là số lớn hơn 0.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -166,7 +161,6 @@ namespace FE
                     int soLuongDaCo = chiTietHienCo?.SoLuong ?? 0;
                     int tongSoLuongMoi = soLuongDaCo + soLuong;
 
-                    // KIỂM TRA TỒN KHO: Chỉ áp dụng cho hóa đơn BÁN (xuất kho)
                     if (currentHoaDon?.LoaiHoaDon?.ToUpper() == "BAN" && sanPham.SoLuongTon.HasValue && tongSoLuongMoi > sanPham.SoLuongTon.Value)
                     {
                         MessageBox.Show($"Số lượng vượt quá tồn kho. Tồn kho hiện tại: {sanPham.SoLuongTon}. Tổng số lượng sẽ là: {tongSoLuongMoi}. Vui lòng nhập số lượng nhỏ hơn hoặc bằng.", "Lỗi tồn kho", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -202,7 +196,6 @@ namespace FE
                     LoadHoaDonVaChiTiet();
                     XoaONhapLieu();
                 }
-                // Thêm xử lý lỗi DbEntityValidationException để xem chi tiết lỗi ràng buộc
                 catch (DbEntityValidationException ex)
                 {
                     var errorMessage = "Lỗi xác thực dữ liệu:\n";
@@ -245,7 +238,6 @@ namespace FE
                 return;
             }
 
-            // KHẮC PHỤC LỖI: Sử dụng TryParse với CultureInfo để xử lý dấu chấm/phẩy chính xác
             if (!decimal.TryParse(txtGia.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal donGia) || donGia <= 0)
             {
                 MessageBox.Show("Giá phải là số lớn hơn 0.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
